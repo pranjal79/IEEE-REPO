@@ -1,0 +1,124 @@
+Qn1/ Perfect Number Checker: 
+Write a function that checks if a given number is a perfect number. A perfect number is equal to the sum of its proper divisors (excluding itself).
+CODE:
+function isPerfectNumber(num) {
+    if (num <= 1) return false;
+
+    let sum = 0;
+    
+    for (let i = 1; i <= num / 2; i++) {
+        if (num % i === 0) {
+            sum += i;
+        }
+    }
+
+    return sum === num;
+}
+
+// Example usage:
+const number = 28;
+if (isPerfectNumber(number)) {
+    console.log(`${number} is a perfect number.`);
+} else {
+    console.log(`${number} is not a perfect number.`);
+}
+
+QN2/ Palindrome Number:
+ Write a function that checks if a given integer is a palindrome. A palindrome number remains the same when its digits are reversed.
+CODE:
+function isPalindromeNumber(num) {
+    // Convert the number to a string
+    const str = num.toString();
+    
+    // Reverse the string
+    const reversedStr = str.split('').reverse().join('');
+    
+    // Check if the original string is the same as the reversed string
+    return str === reversedStr;
+}
+
+// Example usage:
+const number = 121;
+if (isPalindromeNumber(number)) {
+    console.log(`${number} is a palindrome.`);
+} else {
+    console.log(`${number} is not a palindrome.`);
+}
+QN3/ Count Vowels: 
+Write a function that counts the number of vowels (a, e, i, o, u) in a given string.
+Example:
+Input: “Hello, World!”
+Output: 3
+
+function countVowels(str) {
+    // Convert the string to lowercase to handle both uppercase and lowercase vowels
+    str = str.toLowerCase();
+    
+    // Define the vowels
+    const vowels = 'aeiou';
+    
+    // Initialize the count of vowels
+    let count = 0;
+    
+    // Loop through the string and count the vowels
+    for (let char of str) {
+        if (vowels.includes(char)) {
+            count++;
+        }
+    }
+    
+    return count;
+}
+
+// Example usage:
+const input = "Hello, World!";
+const vowelCount = countVowels(input);
+console.log(`Number of vowels in "${input}": ${vowelCount}`);
+
+QN4/Reverse List:
+Write a function that reverses a given list of integers.
+Example:
+Input: [1, 2, 3, 4, 5]
+Output: [5, 4, 3, 2, 1]
+CODE:function reverseList(arr) {
+    let reversedArray = [];
+    
+    for (let i = arr.length - 1; i >= 0; i--) {
+        reversedArray.push(arr[i]);
+    }
+    
+    return reversedArray;
+}
+
+// Example usage:
+const input = [1, 2, 3, 4, 5];
+const output = reverseList(input);
+console.log(`Reversed list: [${output}]`);
+
+QN5/Factorial of a Number:
+Write a function that calculates the factorial of a non-negative integer.
+Example:
+Input: 5
+Output: 120 (5! = 5 × 4 × 3 × 2 ×1)
+CODE:function factorial(num) {
+    if (num < 0) {
+        return "Factorial is not defined for negative numbers.";
+    }
+    if (num === 0 || num === 1) {
+        return 1;
+    }
+
+    let result = 1;
+    for (let i = num; i > 1; i--) {
+        result *= i;
+    }
+    
+    return result;
+}
+
+// Example usage:
+const input = 5;
+const output = factorial(input);
+console.log(`Factorial of ${input} is: ${output}`);
+
+
