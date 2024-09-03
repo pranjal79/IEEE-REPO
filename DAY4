@@ -1,0 +1,122 @@
+QN1/Armstrong Number Checker: Write a function that checks if a given number is an Armstrong number. An Armstrong number of n digits is equal to the sum of its digits each raised to the power of n.
+
+Example:
+Input: 153
+Output: True (153 = 1³ + 5³ + 3³)
+CODE:
+function isArmstrongNumber(num) {
+    // Convert the number to a string to easily access its digits
+    const digits = num.toString().split('');
+    const n = digits.length;  // Number of digits
+    let sum = 0;
+
+    // Calculate the sum of the digits each raised to the power of n
+    for (let i = 0; i < n; i++) {
+        sum += Math.pow(parseInt(digits[i]), n);
+    }
+
+    // Check if the sum is equal to the original number
+    return sum === num;
+}
+
+// Example usage
+const inputNumber = 153;
+console.log(isArmstrongNumber(inputNumber));  // Output: true
+QN2/
+Anagram Checker: Write a function that checks if two given strings are anagrams. Two strings are anagrams if they contain the same characters in the same frequency.
+
+Example:
+Input: "listen", "silent"
+Output: True
+CODE:
+function areAnagrams(str1, str2) {
+    // Remove any non-alphanumeric characters and convert to lowercase
+    const normalize = str => str.replace(/[^\w]/g, '').toLowerCase();
+
+    // Normalize the strings
+    str1 = normalize(str1);
+    str2 = normalize(str2);
+
+    // If the lengths don't match, they can't be anagrams
+    if (str1.length !== str2.length) {
+        return false;
+    }
+
+    // Sort the characters in both strings and compare
+    const sortedStr1 = str1.split('').sort().join('');
+    const sortedStr2 = str2.split('').sort().join('');
+
+    // Return whether the sorted strings are equal
+    return sortedStr1 === sortedStr2;
+}
+
+// Example usage
+const string1 = "listen";
+const string2 = "silent";
+console.log(areAnagrams(string1, string2));  // Output: true
+
+QN3/
+Sum of Even Numbers in a List: Write a function that calculates the sum of all even numbers in a given list of integers.
+
+Example:
+Input: [1, 2, 3, 4, 5, 6]
+Output: 12 (2 + 4 + 6)
+
+code:function sumOfEvenNumbers(numbers) {
+    let sum = 0;
+
+    // Iterate through the list and add even numbers to the sum
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] % 2 === 0) {
+            sum += numbers[i];
+        }
+    }
+
+    return sum;
+}
+
+// Example usage
+const inputList = [1, 2, 3, 4, 5, 6];
+console.log(sumOfEvenNumbers(inputList));  // Output: 12
+QN4/Calculate the GCD (Greatest Common Divisor) of Two Numbers: Write a function that calculates the GCD of two non-negative integers.
+
+Example:
+Input: 48, 18
+Output: 6
+CODE:
+function gcd(a, b) {
+    // Ensure both numbers are non-negative
+    a = Math.abs(a);
+    b = Math.abs(b);
+
+    // Use the Euclidean algorithm to find the GCD
+    while (b !== 0) {
+        const temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    return a;
+}
+
+// Example usage
+const num1 = 48;
+const num2 = 18;
+console.log(gcd(num1, num2));  // Output: 6
+QN5/
+Convert Celsius to Fahrenheit: Write a function that converts a temperature from Celsius to Fahrenheit.
+
+Example:
+Input: 25
+Output: 77.0
+
+CODE:
+function celsiusToFahrenheit(celsius) {
+    return (celsius * 9/5) + 32;
+}
+
+// Example usage
+const celsiusInput = 25;  // You can change this value to any Celsius temperature
+const fahrenheitOutput = celsiusToFahrenheit(celsiusInput);
+console.log(`${celsiusInput}°C is equal to ${fahrenheitOutput}°F`);
+
